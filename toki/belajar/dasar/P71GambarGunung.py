@@ -3,7 +3,7 @@
 
 num = int(input())
 
-def count(i, x):
+def count(x):
     memo = [] # memoization
     for i in range(1,x+1): # change recursive with simple looping with memoization
       print("*" * i)
@@ -13,4 +13,4 @@ def count(i, x):
         memo.append(memo[j])
 
 if (__name__ == "__main__"):
-    count(1, num)
+    count(num)
