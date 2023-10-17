@@ -13,11 +13,11 @@ for i in berkas:
   data = int(i)
   jumlah += data
   N += 1
-  print N, data, jumlah
+  print(N, data, jumlah)
 
 # Menutup berkas
 berkas.close()
 
 # Menghitung rerata suhu dalam 1 bulan
 meanSuhu = float(jumlah) / N
-print 'Suhu rerata sebanyak %d data adalah %.2f' % (N, meanSuhu)
+print('Suhu rerata sebanyak %d data adalah %.2f' % (N, meanSuhu))

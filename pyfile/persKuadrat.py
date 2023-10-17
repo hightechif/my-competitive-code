@@ -6,34 +6,34 @@
 jawab = 'Y'
 while jawab == 'Y':
   # Berikan 3 Koefisien A, B, C
-  A = raw_input('\nKoefisien A = ')
+  A = input('\nKoefisien A = ')
   A = float(A)
-  B = raw_input('Koefisien B = ')
+  B = input('Koefisien B = ')
   B = float(B)
-  C = raw_input('Koefisien C = ')
+  C = input('Koefisien C = ')
   C = float(C)
-  print 'Koefisien persamaan kuadrat:' , A, B, C
+  print('Koefisien persamaan kuadrat:' , A, B, C)
 
   # Hitung Diskriminan
   D = B ** 2 - 4 * A * C
-  print 'Diskriminan =', D
+  print('Diskriminan =', D)
 
   # Tentukan jenis akar dan hitung nilainya
   if D > 0:
-    print 'Akar yang real dan berbeda'
+    print('Akar yang real dan berbeda')
     x1 = (-B + D ** 0.5) / (2 * A)
     x2 = (-B - D ** 0.5) / (2 * A)
   elif D == 0:
-    print 'Akar yang real dan kembar'
+    print('Akar yang real dan kembar')
     x1 = -B/(2 * A)
     x2 = x1
   else:
-    print 'Akar yang kompleks'
+    print('Akar yang kompleks')
     x1 = (-B)/(2 * A) + (1j * abs(D) ** 0.5) / (2 * A)
     x2 = (-B)/(2 * A) - (1j * abs(D) ** 0.5) / (2 * A)
 
   # Tampilkan 2 akar persamaan kuadrat
-  print 'Akar persamaan kuadrat =', x1, x2
+  print('Akar persamaan kuadrat =', x1, x2)
 
   # Uji apakah ingin mengulang program
-  jawab = raw_input('Ulangi (Y/T) ? ')
+  jawab = input('Ulangi (Y/T) ? ')

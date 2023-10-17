@@ -34,7 +34,7 @@ Dn = (An*1.274)**0.5
 #6 Diameter of Pleton Wheel (Drun)
 Drun = (60*U)/1884
 
-#7 Jumlah Buckets (Bn)
+#7 Jumlah Buckets (Bn)~
 Bn = (0.5*Drun/Dn)+15
 
 #8 Dimensions of Bucket

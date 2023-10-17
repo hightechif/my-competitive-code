@@ -15,6 +15,6 @@ def putarn(x,n):
 
 e = np.array([[5,6],
               [7,8]])
-v = int(raw_input())
+v = int(input())
 h = putarn(e,v)
-print h
+print(h)

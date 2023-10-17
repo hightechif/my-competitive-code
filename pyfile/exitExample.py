@@ -1,9 +1,9 @@
 import sys
 
 while True:
-  print 'Type exit to exit.'
-  respone = raw_input()
+  print('Type exit to exit.')
+  respone = input()
   if respone == 'exit':
     sys.exit()
 
-  print 'You typed ' + respone + '.\n'
+  print('You typed ' + respone + '.\n')

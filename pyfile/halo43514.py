@@ -1,3 +1,3 @@
-import system as sys
-print 'Hello'
-exit.sys
+import sys
+print('Hello')
+sys.exit()

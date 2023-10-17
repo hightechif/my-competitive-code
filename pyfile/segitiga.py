@@ -13,30 +13,30 @@
 
 
 # Judul Program
-print ' ' * 5 + 'Menghitung Luas Segitiga Sembarang dari Nilai Panjang Sisi - sisinya.'
-print ' ' * 5 + '--------------------------------------------------------------------\n'
+print(' ' * 5 + 'Menghitung Luas Segitiga Sembarang dari Nilai Panjang Sisi - sisinya.')
+print(' ' * 5 + '--------------------------------------------------------------------\n')
 
 # Sambutan
-print ' ' * 25 + 'Selamat datang di program kami\n'
+print(' ' * 25 + 'Selamat datang di program kami\n')
 
 # Pemberian sisi - sisi segitiga
-a = raw_input('Masukan panjang sisi a = ')
+a = input('Masukan panjang sisi a = ')
 a = abs(float(a))
-b = raw_input('Masukan panjang sisi b = ')
+b = input('Masukan panjang sisi b = ')
 b = abs(float(b))
-c = raw_input('Masukan panjang sisi c = ')
+c = input('Masukan panjang sisi c = ')
 c = abs(float(c))
-print 'Panjang sisi - sisinya: ', a, b, c
+print('Panjang sisi - sisinya: ', a, b, c)
 
 # Hitung semiperimeter
 s = (a + b + c)/2
-print 'Nilai semiperimeter (s) = ', s
+print('Nilai semiperimeter (s) = ', s)
 
 # Hitung luas segitiga
 L = (s * (s-a) * (s-b) * (s-c)) ** 0.5
 
 # Tampilkan nilai luas segitiga
-print 'Luas segitiga = ', L
+print('Luas segitiga = ', L)
 
 # Ucapan Terima Kasih
-print '\n' + ' ' * 18 + 'Terima kasih telah menggunakan program kami.'
+print('\n' + ' ' * 18 + 'Terima kasih telah menggunakan program kami.')

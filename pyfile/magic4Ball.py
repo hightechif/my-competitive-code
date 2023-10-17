@@ -14,4 +14,4 @@ def getAnswer(n):
 
 r = random.randint(1, 5)
 fortune = getAnswer(r)
-print fortune
+print(fortune)

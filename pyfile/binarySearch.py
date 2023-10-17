@@ -15,4 +15,6 @@ def binarySearch(h,x):
     return hasil
 
 angka = [i for i in range(34,10002)]
-print(binarySearch(angka,55))
+index = binarySearch(angka,55)
+print(angka)
+print(index, angka[index])

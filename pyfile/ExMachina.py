@@ -30,4 +30,4 @@ sys.stdout.write(''.join(chr(i) for i in [73,83,66,78,32,61,32]))
 
 for i in range(0,4):
     sys.stdout.write(str(prime(code[i],x)+key[i]))
-print
+print()
