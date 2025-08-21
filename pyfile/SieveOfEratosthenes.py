@@ -56,11 +56,11 @@ if __name__ == "__main__":
     print("🧪 CORRECTNESS VERIFICATION")
     print("=" * 50)
     
-    result3 = ultimate_optimized_sieve(limit)
+    result = ultimate_optimized_sieve(limit)
     expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     
     print(f"Expected: {expected}")
-    print(f"Ultimate: {result3}")
+    print(f"Ultimate: {result}")
     
     print(f"\n🏆 CONCLUSION")
     print("=" * 50)
@@ -69,4 +69,5 @@ if __name__ == "__main__":
     print("• Proper mathematical bounds and integer arithmetic") 
     print("• Optimized memory usage and clean code structure")
     print("• Results in the fastest and most reliable implementation!")
+
 
