@@ -3,51 +3,35 @@ from typing import List
 
 def sieve_of_eratosthenes(n: int) -> List[int]:
     """
-    Ultimate optimized Sieve of Eratosthenes.
-    
-    Key optimizations:
-    - Only processes odd numbers (50% memory reduction)
-    - Uses slice assignment for bulk marking (CPython optimization)
-    - Integer square root for exact arithmetic
-    - Efficient index mapping
-    - Single list comprehension for result collection
-    
-    Time complexity: O(n log log n)
-    Space complexity: O(n)
-    Space optimization: 50% memory reduction (constant factor improvement)
-    
-    Args:
-        n: Upper limit (inclusive) to find primes up to
-        
-    Returns:
-        List of all prime numbers from 2 to n (inclusive)
+    Optimized Sieve of Eratosthenes.
+    Uses bit-packing (bytearray) and skips even numbers.
     """
-    if n < 2:
-        return []
-    if n == 2:
-        return [2]
+    if n < 2: return []
+    if n == 2: return [2]
     
-    size = (n - 1) // 2  # Number of odd numbers from 3 to n
-    is_prime = [True] * size
-    sqrt_n = math.isqrt(n)
-    sqrt_limit = (sqrt_n - 1) // 2  # Convert sqrt_n to our index system
+    # We only store odd numbers: [1, 3, 5, 7, 9, ...]
+    # Index 'i' represents the number (2 * i + 1)
+    size = (n - 1) // 2 + 1
+    # bytearray is much more memory efficient than a list of bools
+    is_prime = bytearray([1]) * size
     
-    # Sieve process: only check odd numbers up to sqrt(n)
-    for i in range(sqrt_limit + 1):
+    # 0 index corresponds to the number 1, which is not prime
+    is_prime[0] = 0 
+    
+    # We only need to iterate up to sqrt(n)
+    for i in range(1, (math.isqrt(n) // 2) + 1):
         if is_prime[i]:
-            p = 2 * i + 3  # Convert index back to actual number
+            p = 2 * i + 1
+            # Mark multiples starting from p*p
+            # The index for p*p is (p*p - 1) // 2
+            start = (p * p - 1) // 2
             
-            # Start marking from p² and mark only odd multiples
-            # p² is always odd for odd p, so no need to adjust
-            start_idx = (p * p - 3) // 2
+            # Optimization: Slice assignment is performed in C-level loops
+            # is_prime[start::p] sets every p-th element to 0
+            is_prime[start::p] = bytearray((size - start - 1) // p + 1)
             
-            if start_idx < size:
-                # Calculate the exact number of elements to mark
-                num_to_mark = (size - start_idx + p - 1) // p
-                is_prime[start_idx::p] = [False] * num_to_mark
-    
-    return [2] + [2 * i + 3 for i in range(size) if is_prime[i]]
-
+    # Reconstruct the list of primes: 2 is the only even prime, then add odds
+    return [2] + [2 * i + 1 for i in range(1, size) if is_prime[i]]
 
 if __name__ == "__main__":
     # Test correctness with the original example
@@ -56,7 +40,7 @@ if __name__ == "__main__":
     print("🧪 CORRECTNESS VERIFICATION")
     print("=" * 50)
     
-    result = ultimate_optimized_sieve(limit)
+    result = sieve_of_eratosthenes(limit)
     expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     
     print(f"Expected: {expected}")
@@ -69,5 +53,3 @@ if __name__ == "__main__":
     print("• Proper mathematical bounds and integer arithmetic") 
     print("• Optimized memory usage and clean code structure")
     print("• Results in the fastest and most reliable implementation!")
-
-
